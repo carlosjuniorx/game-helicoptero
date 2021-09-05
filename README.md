@@ -8,4 +8,4 @@
  - jquery 1.11.1
  - jquery-collision
 
- <img wigth= "400" src="imgs/Readme.png">
+ <img wigth= "400" src="imgs/imgReadme.png">
