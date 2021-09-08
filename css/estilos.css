@@ -177,3 +177,24 @@ h3 {
 	padding:10px;
 
 }
+#buttons{
+display: flex;
+justify-content: center;
+margin-top: 70%;
+}
+#buttons > div {	
+display: flex;
+justify-content: center;
+color: white;
+margin: 15px;
+background-color:#603A03;
+width: 50px;
+height: 50px;
+font-size: 20px;
+}
+
+@media only screen and (max-height: 400px){
+	#fundoGame{		
+		width: 200px;
+	}	
+}

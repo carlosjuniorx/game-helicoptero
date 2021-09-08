@@ -8,6 +8,14 @@ function start() {
 	$("#fundoGame").append("<div id='amigo' class='anima3'></div>");
     $("#fundoGame").append("<div id='placar'></div>");
     $("#fundoGame").append("<div id='energia'></div>");
+    $("#fundoGame").append("<div id='buttons'></div>");
+    $("#buttons").append("<div id='w'></div>");
+    $("#buttons").append("<div id='s'></div>");
+    $("#buttons").append("<div id='ctrl'></div>");
+
+    const w = document.querySelector("#w")
+    const s = document.querySelector("#s")
+    const ctrl = document.querySelector("#ctrl")
 
     var jogo = {}
     var TECLA = {
@@ -36,7 +44,7 @@ function start() {
 
     $(document).keydown(function(e){
         jogo.pressionou[e.which] = true;
-        });
+    });
     
     
     $(document).keyup(function(e){
@@ -61,6 +69,9 @@ function start() {
         $("#placar").html("<h2> Pontos: " + pontos + " Salvos: " + salvos + " Perdidos: " + perdidos + "</h2>");
         
     } 
+    $("#w").html(" W ")
+    $("#s").html(" S ")
+    $("#ctrl").html(" Ctrl ")
 
     function colisao() {
         var colisao1 = ($("#jogador").collision($("#inimigo1")));
@@ -366,6 +377,28 @@ function start() {
         
         $("#fim").html("<h1> Game Over </h1><p>Sua pontuação foi: " + pontos + "</p>" + "<div id='reinicia' onClick='reiniciaJogo()'><h3>Jogar Novamente</h3></div>");
     }
+    const up = ()=>{
+        var topo = parseInt($("#jogador").css("top"));
+            $("#jogador").css("top",topo-10);
+            if (topo<=0) {
+		
+                $("#jogador").css("top",topo+10);
+            }
+        console.log('oi')
+    }
+    const down = ()=>{
+        var topo = parseInt($("#jogador").css("top"));
+            $("#jogador").css("top",topo+10);
+            if (topo<=0) {
+		
+                $("#jogador").css("top",topo+10);
+            }
+        console.log('oi')
+    }
+
+    w.onclick = () => up()
+    s.onclick = () => down()
+    ctrl.onclick = () => disparo()
 }
 
 function reiniciaJogo() {
